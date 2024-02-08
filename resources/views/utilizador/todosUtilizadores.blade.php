@@ -1,7 +1,7 @@
 @extends('layouts.FrontEndMaster')
 @section('content')
 {{-- @section ('content2') --}}
-    <h3>Olá, aqui vão estar todos os utilizadores</h3>
+    <h3>Aqui estão os utilizadores</h3>
     <br>
 
     {{-- <p>{{ $hello }}</p>

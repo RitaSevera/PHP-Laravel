@@ -2,7 +2,7 @@
 @section ('content')
 {{-- @section ('content2') --}}
 
-    <h3>Olá! Aqui podes adicionar utilizadores!</h3>
+    <h3>Adicionar utilizadores!</h3>
     <br>
     {{-- <ul>
         <li>

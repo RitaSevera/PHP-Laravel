@@ -2,8 +2,9 @@
     @section ('content')
     {{-- @section ('content2') --}}
 
-    <h3>Hello World, estamos nas views.</h3>
-    <h5>Tens disponíveis estes links:</h5>
+    {{-- <h3>Hello World, estamos nas views.</h3> --}}
+    <br>
+    <h5>Links disponíveis</h5>
     <ul>
         <li>
             <a href="{{route('bemvindos')}}">Vai para casa</a>
@@ -26,7 +27,7 @@
     </ul>
     <ul>
         <li>
-            <a href="{{route('tarefa.create')}}">Adicionar tarefas</a>
+            <a href="{{route('tarefa.add')}}">Adicionar tarefas</a>
         </li>
     </ul>
     {{-- <h3>Dados do Cesae</h3>
