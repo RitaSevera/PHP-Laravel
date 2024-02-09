@@ -18,8 +18,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    // CONST TYPE_ADMIN = 1; //definir tipo de utilizador
-    // CONST TYPE_STUDENT = 3;
+    CONST TYPE_ADMIN = 1; //definir tipo de utilizador
+    CONST TYPE_STUDENT = 3;
 
     protected $fillable = [
         'name',

@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\IndexController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\tarefaController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +44,8 @@ Route::get('/tarefas/delete{id}', [tarefaController::class, 'deleteTasks'])->nam
 Route::post('/tarefas/create', [tarefaController::class, 'createTasks'])->name('tarefa.create');
 Route::get('/tarefas/add', [tarefaController::class, 'addTask'])->name('tarefa.add');
 Route::post('/tarefas/update', [tarefaController::class, 'updateTasks'])->name('tarefa.update');
+
+Route::get('/backoffice', [DashboardController::class,'viewDash'])->name('backoffice.view')->middleware('auth');
 
 
 Route::fallback(function () {

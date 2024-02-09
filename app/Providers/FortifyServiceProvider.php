@@ -13,10 +13,13 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
 
+
+//é o nosso controlador para o vender
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
+     * já temos isto no userController (addUser)
      */
     public function register(): void
     {
@@ -41,6 +44,10 @@ class FortifyServiceProvider extends ServiceProvider
 
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
+        });
+
+        Fortify::loginView(function (){
+            return view('auth.login');
         });
     }
 }
