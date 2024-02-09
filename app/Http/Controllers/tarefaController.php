@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\_Task;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,10 +24,10 @@ class tarefaController extends Controller{
 
     public function viewTasks($id){
 
-        $tarefas = DB::table('_tasks')
-        ->where('_tasks.id', $id)
+        $tarefas = DB::table('tasks')
+        ->where('tasks.id', $id)
         ->join('users', 'user_id', '=', 'users.id')
-        ->select('_tasks.*', 'users.name as usname')
+        ->select('tasks.*', 'users.name as usname')
         ->first();
 
         $users = DB::table('users')->get();
@@ -43,22 +44,34 @@ class tarefaController extends Controller{
 
     public function createTasks(Request $request){
         //$request-> all();
-        $request->validate([
+         $request->validate([
             'name' => 'required|string|max:30',
-        ]);
+            'description' => 'string|max:200',
+            'user_id' => 'required|integer|exists:users,id',
+         ]);
 
-        _Tasks::insert([
-            //lado esquerdo - nome da coluna em sql; lado direito nome da variável + campo
+          Task::insert([
+               //lado esquerdo - nome da coluna em sql; lado direito nome da variável + campo
             'name' => $request->name,
             'description' => $request->description,
             'user_id' => $request->user_id,
-        ]);
+            'due_at' => now(),
+            'status' => 1,
+           ]);
+
+            //dd($request->all());
+
+        //  DB::table('_tasks')-> insert([
+        //     'name' => $request->name,
+        //     'description' => $request->description,
+        //     'user_id' => $request->user_id,
+        // ]);
 
         return redirect()->route('tarefas')->with('message', 'Tarefa adicionada com sucesso!');
     }
 
     public function deleteTasks($id){ //para receber o id passo-o como parâmetro
-        DB::table('_tasks')
+        DB::table('tasks')
         ->where('id', ($id))
         ->delete();
 
@@ -67,18 +80,25 @@ class tarefaController extends Controller{
 
     public function updateTasks(Request $request){
         $request->validate([
+            'name' => 'required|string|max:30',
+            'description' => 'string|max:200',
+            'user_id' => 'required|integer|exists:users,id'
+        ]);
+
+        Task::where('id', $request->id)->update([
             'name' => $request->name,
             'description' => $request->description,
             'user_id' => $request->user_id,
+            'due_at' => $request->due_at,
         ]);
 
         return redirect()->route('tarefas')->with('message', 'Tarefa atualizada!');
     }
 
     private function getTarefas(){
-        $tarefas = DB::table('_tasks')
+        $tarefas = DB::table('tasks')
         ->join('users', 'user_id', '=' , 'users.id')
-        ->select('_tasks.*', 'users.name as user_name')
+        ->select('tasks.*', 'users.name as user_name')
         ->get();
 
         return $tarefas;

@@ -1,11 +1,10 @@
 @extends('layouts.FrontEndMaster')
 @section('content')
 {{-- @section ('content2') --}}
-    <h3>Todas as tarefas</h3>
-
-    @if (session('message'))
-        <div class="alert alert-success">{{session('message')}}</div>
-    @endif
+<br>
+<div class="d-grid col-6 mx-auto">
+    <button type="button" class="btn btn-outline-secondary" disabled>Tarefas</button>
+</div>
 
     <table class="table">
         <thead>
@@ -14,7 +13,6 @@
             <th scope="col">Tarefa</th>
             <th scope="col">Descrição</th>
             <th scope="col">Data</th>
-            <th scope="col">Estado</th>
             <th scope="col">Nome</th>
             <th></th>
             <th></th>
@@ -27,7 +25,6 @@
             <td>{{$item->name}}</td>
             <td>{{$item->description}}</td>
             <td>{{$item->due_at}}</td>
-            <td>{{$item->status}}</td>
             <td>{{$item->user_name}}</td>
             <td><a href="{{route('tarefa.view', $item->id)}}" class="btn btn-info">Ver | Atualizar</a></td>
             <td><a href="{{route('tarefa.delete', $item->id)}}" class="btn btn-danger">Apagar</a></td>

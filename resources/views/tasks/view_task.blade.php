@@ -8,7 +8,11 @@
 <h4>Tarefa: {{$tasks ->name}}</h4>
 <h4>Descrição: {{$tasks ->description}}</h4> --}}
 
-<h1>Ver | Atualizar detalhes das tarefas {{$tarefas->name}}</h1>
+<br>
+
+<div class="d-grid col-6 mx-auto">
+    <button type="button" class="btn btn-outline-secondary" disabled>Ver | Atualizar detalhes da tarefa - {{$tarefas->name}}</button>
+</div>
 
 <form method="POST" action="{{route('tarefa.update')}}">
     @csrf
@@ -25,9 +29,12 @@
       </div>
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Descrição</label>
-        <input value="{{old('description')}}" type="text" name="description" class="form-control" id="exampleFormControlInput1">
+        <input value="{{$tarefas->description}}" type="text" name="description" class="form-control" id="exampleFormControlInput1">
       </div>
-
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Data de entrega</label>
+        <input type="date" name="due_at" class="form-control" id="exampleFormControlInput1">
+      </div>
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">User ID</label>
         <select name="user_id" id="">

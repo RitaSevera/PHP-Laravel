@@ -1,7 +1,10 @@
 @extends('layouts.FrontEndMaster')
 @section('content')
 {{-- @section ('content2') --}}
-    <h3>Aqui estão os utilizadores</h3>
+<br>
+<div class="d-grid col-6 mx-auto">
+    <button type="button" class="btn btn-outline-secondary" disabled>Utilizadores</button>
+</div>
     <br>
 
     {{-- <p>{{ $hello }}</p>
@@ -19,6 +22,15 @@
             <p>{{$contacts[0]['name']}}</p>
         </li>
     </ul> --}}
+
+<div class="d-grid d-md-flex justify-content-md-end">
+    <form method="GET">
+        <input type="text" value="" name="search" id="" >
+        <button class="btn btn-dark btn-sm" type="submit">Procurar</button>
+    </form>
+</div>
+
+
     @if (session('message'))
         <div class="alert alert-success">{{session('message')}}</div>
     @endif

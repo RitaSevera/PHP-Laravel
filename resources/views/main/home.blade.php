@@ -1,8 +1,8 @@
-    @extends('layouts.FrontEndMaster')
+    {{-- @extends('layouts.FrontEndMaster')
     @section ('content')
-    {{-- @section ('content2') --}}
+    @section ('content2')
 
-    {{-- <h3>Hello World, estamos nas views.</h3> --}}
+    <h3>Hello World, estamos nas views.</h3>
     <br>
     <h5>Links disponíveis</h5>
     <ul>
@@ -30,12 +30,12 @@
             <a href="{{route('tarefa.add')}}">Adicionar tarefas</a>
         </li>
     </ul>
-    {{-- <h3>Dados do Cesae</h3>
+<h3>Dados do Cesae</h3>
     <h5>Nome</h5>
     <p>{{$infoCesae['name']}}</p>
     <h5>Morada</h5>
     <p>{{$infoCesae['address']}}</p>
     <h5>Email</h5>
-    <p>{{$infoCesae['email']}}</p> --}}
+    <p>{{$infoCesae['email']}}</p>
 
-    @endsection
+    @endsection --}}

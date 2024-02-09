@@ -1,7 +1,13 @@
 @extends('layouts.FrontEndMaster')
 @section('content')
 
-<h1>Ver | Atualizar dados do user {{$myUser ->name}}</h1>
+<br>
+
+<div class="d-grid col-6 mx-auto">
+    <button type="button" class="btn btn-outline-secondary" disabled>Ver | Atualizar dados do user - {{$myUser->name}}</button>
+</div>
+
+{{-- <h1>Ver | Atualizar dados do user {{$myUser ->name}}</h1> --}}
 {{-- <h4>Nome: {{$myUser ->name}}</h4>
 <h4>Email: {{$myUser ->email}}</h4>
 <h4>Password: {{$myUser ->password}}</h4> --}}

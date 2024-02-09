@@ -1,7 +1,10 @@
 @extends('layouts.FrontEndMaster')
 @section('content')
 
-<h3>Adicionar tarefas!</h3>
+<br>
+<div class="d-grid col-6 mx-auto">
+    <button type="button" class="btn btn-outline-secondary" disabled>Adicionar tarefas</button>
+</div>
     <br>
 
         <div class="container">
@@ -13,10 +16,10 @@
 
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Tarefa</label>
-                <input type="texto" value="{{old('name')}}" name="name" class="form-control" id="exampleFormControlInput1" required>
+                <input type="text" value="{{old('name')}}" name="name" class="form-control" id="exampleFormControlInput1" required>
                 @error('name')
                 <div class="alert alert-danger">
-                    A tarefa que colocou não é válida
+                    A tarefa inválida
                 </div>
                 @enderror
               </div>
@@ -32,6 +35,11 @@
                             {{$user->name}}</option>
                     @endforeach
                 </select>
+                @error('user_id')
+                <div class="alert alert-danger">
+                    Não pode atribuir a tarefa a este utilizador
+                </div>
+                @enderror
               </div>
 
               <button type="submit" class="btn btn-primary">Enviar</button>

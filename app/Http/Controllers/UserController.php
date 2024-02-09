@@ -36,6 +36,7 @@ class UserController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:13'
         ]);
+
         User::insert([
             //lado esquerdo - nome da coluna em sql; lado direito nome da variável + campo
             'name' => $request->name,
@@ -69,7 +70,28 @@ class UserController extends Controller
         $helloAgain = 'cucu';
         $daysOfWeek = $this->diasSemana();
         $info = $this->courseInfo();
-        $users = $this->getContacts();
+
+        // $users = $this->getContacts();
+
+        $search = request()->query('search') ? request()->query('search'): null;
+        //objeto que carrego na tabela
+        $users = DB::table('users');
+
+        if($search){
+            $users = $users->
+            where('name', 'like', "%{$search}%")->
+            orWhere('email', 'like', "%{$search}%");
+        };
+
+            $users = $users->get();
+
+        $search = '';
+
+        // if(request()->query('search'){
+        //     $search = request()->query('search');
+        // }else{
+        //     $search = null;
+        // })
 
        // dd($info);
        // var_dump($info);

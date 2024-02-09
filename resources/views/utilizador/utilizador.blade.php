@@ -2,7 +2,10 @@
 @section ('content')
 {{-- @section ('content2') --}}
 
-    <h3>Adicionar utilizadores!</h3>
+<br>
+<div class="d-grid col-6 mx-auto">
+    <button type="button" class="btn btn-outline-secondary" disabled>Adicionar utilizadores</button>
+</div>
     <br>
     {{-- <ul>
         <li>
