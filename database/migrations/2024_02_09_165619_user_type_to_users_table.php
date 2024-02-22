@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('user_type');
+            $table->integer('user_type'); //aqui podia fazer ->after('email') para a coluna ir para depois do email e não para o fim de tudo
         });
     }
 

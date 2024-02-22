@@ -51,6 +51,7 @@ class UserController extends Controller
 
     public function updateUser(Request $request){
 
+        //AQUI ADICIONAR MAIS UM DADO A RECEBER
         $request->validate([
             'phone' => 'min:9',
         ]);
@@ -60,6 +61,8 @@ class UserController extends Controller
             'name' => $request->name,
             'address' => $request->address,
             'phone' => $request->phone,
+            //'PHOTO' => $PHOTO
+            //NÃO ESQUECER DE CRIAR MIGRAÇÃO NA TABELA USER COM A COLUNA PHOTO
         ]);
 
         return redirect()->route('utilizador.all')->with('message', 'Atualizado com sucesso!');

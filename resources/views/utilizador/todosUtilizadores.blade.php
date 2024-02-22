@@ -41,6 +41,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
+                {{-- ADICIONAR O CAMINHO DA FOTO --}}
                 <th></th>
                 <th></th>
             </tr>

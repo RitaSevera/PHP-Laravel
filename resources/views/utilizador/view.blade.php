@@ -6,6 +6,8 @@
 <div class="d-grid col-6 mx-auto">
     <button type="button" class="btn btn-outline-secondary" disabled>Ver | Atualizar dados do user - {{$myUser->name}}</button>
 </div>
+{{-- ACRESCESTAR COLUNA PARA PÔR FOTO --}}
+
 
 {{-- <h1>Ver | Atualizar dados do user {{$myUser ->name}}</h1> --}}
 {{-- <h4>Nome: {{$myUser ->name}}</h4>

@@ -47,7 +47,6 @@ Route::post('/tarefas/update', [tarefaController::class, 'updateTasks'])->name('
 
 Route::get('/backoffice', [DashboardController::class,'viewDash'])->name('backoffice.view')->middleware('auth');
 
-
 Route::fallback(function () {
     return view('main.fallback');
 });

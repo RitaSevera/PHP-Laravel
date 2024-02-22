@@ -13,6 +13,14 @@
       <input name="password" type="password" class="form-control" id="exampleInputPassword1">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+
+    <div class="mb-3">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      </div>
+
+      <a href="{{route('password.request')}}">Esqueci-me da password</a>
+</form>
+
 
   @endsection
